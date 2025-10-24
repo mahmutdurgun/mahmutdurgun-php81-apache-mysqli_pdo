@@ -3,7 +3,8 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "100:80"
     volumes:
       - /home/umbrel/web/www/:/var/www/html/
+
     restart: always
