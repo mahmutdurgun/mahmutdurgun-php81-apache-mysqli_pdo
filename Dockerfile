@@ -3,12 +3,12 @@ FROM php:8.1-apache
 
 # Gerekli kütüphaneleri ve araçları yükleyin
 RUN apt-get update && apt-get install -y \
-    libjpeg-dev \
-    libfreetype6-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install mysqli \
-    && docker-php-ext-install pdo \
+    libjpeg-dev \
+    libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install mysqli \
+	&& docker-php-ext-install pdo \
     && docker-php-ext-install pdo_mysql
 
 # Composer'ı yükleyin
@@ -20,7 +20,7 @@ RUN a2enmod rewrite
 # Çalışma dizinini ayarlayın
 WORKDIR /var/www/html
 
-# Proje dosyalarınızı konteyner içine kopyalayın
+# Proje dosyalarınızı konteyner içine kopyalayıncd 
 COPY . /var/www/html
 
 # Composer'ı süper kullanıcı olarak çalıştırmaya izin verin
